@@ -1,0 +1,36 @@
+-- Criar banco de dados (executar separadamente)
+-- CREATE DATABASE cadastro_funcionarios;
+
+-- Tabela de usuários (para login)
+CREATE TABLE IF NOT EXISTS usuarios (
+    id SERIAL PRIMARY KEY,
+    usuario VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    nome VARCHAR(150) NOT NULL,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela de funcionários
+CREATE TABLE IF NOT EXISTS funcionarios (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(150) NOT NULL,
+    cargo VARCHAR(100) NOT NULL,
+    email VARCHAR(150),
+    telefone VARCHAR(20),
+    situacao VARCHAR(10) DEFAULT 'Ativo' CHECK (situacao IN ('Ativo', 'Inativo')),
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Inserir usuário admin padrão (senha: admin123)
+INSERT INTO usuarios (usuario, senha, nome) 
+VALUES ('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Admin')
+ON CONFLICT DO NOTHING;
+
+-- Dados de exemplo
+INSERT INTO funcionarios (nome, cargo, email, telefone, situacao) VALUES
+('Ana Silva', 'Gerente', 'ana@empresa.com', '(61) 9 9999-1111', 'Ativo'),
+('Bruno Costa', 'Desenvolvedor', 'bruno@empresa.com', '(61) 9 9999-2222', 'Ativo'),
+('Carla Mendes', 'Designer', 'carla@empresa.com', '(61) 9 9999-3333', 'Inativo'),
+('Diego Souza', 'Analista', 'diego@empresa.com', '(61) 9 9999-4444', 'Ativo'),
+('Eduarda Lima', 'RH', 'eduarda@empresa.com', '(61) 9 9999-5555', 'Inativo')
+ON CONFLICT DO NOTHING;
