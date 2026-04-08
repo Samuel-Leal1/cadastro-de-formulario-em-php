@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
 
         <hr class="login-divider">
-        <a class="forgot-link" href="#">Esqueci minha senha</a>
+       <a class="forgot-link" href="forgot.php">Esqueci minha senha</a>
     </div>
 </div>
 </body>
