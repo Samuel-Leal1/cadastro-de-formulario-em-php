@@ -81,6 +81,7 @@ Acesse: [http://localhost:8000](http://localhost:8000)
 - ✅ Visualização detalhada
 - ✅ Controle de sessão
 - ✅ Proteção contra SQL Injection via PDO + prepared statements
+- ✅ Botão de "Esqueci minha Senha" funcional
 
 ## Tecnologias
 
