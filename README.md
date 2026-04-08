@@ -11,6 +11,7 @@ cadastro-funcionarios/
 ├── listagem.php       # Listagem de Funcionários (Tela 3)
 ├── ver.php            # Detalhes do funcionário
 ├── logout.php         # Encerrar sessão
+├── forgot.php         # Recuperar senha
 ├── schema.sql         # Script de criação do banco
 ├── css/
 │   └── style.css      # Estilos globais
